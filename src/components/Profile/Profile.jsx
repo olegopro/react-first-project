@@ -1,18 +1,11 @@
-import classes from "./Profile.module.css"
-import MyPosts from "./MyPosts/MyPosts"
+import MyPosts from './MyPosts/MyPosts'
+import ProfileInfo from './ProfileInfo/ProfileInfo'
 
-function Profile() {
+function Profile(props) {
 	return (
 		<div>
-			<div>
-				<img src="https://placeimg.com/640/480/any" alt="main bg" />
-			</div>
-			<div>
-				ava + desk
-			</div>
-
-			<MyPosts />
-
+			<ProfileInfo />
+			<MyPosts posts={props.profilePage.posts} newPostText={props.profilePage.newPostText} dispatch={props.dispatch} />
 		</div>
 	)
 }
