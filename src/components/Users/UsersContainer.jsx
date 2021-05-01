@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { getUsers, userAPI } from '../../api/api'
+import { userAPI } from '../../api/api'
 import {
 	follow,
 	setCurrentPage,
