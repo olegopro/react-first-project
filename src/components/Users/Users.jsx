@@ -1,4 +1,3 @@
-import axios from 'axios'
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 import userPhoto from '../../assets/images/avatar.png'
@@ -42,42 +41,18 @@ let Users = props => {
 						<div>
 							{user.followed ? (
 								<button
+									disabled={props.followingInProgress.some(id => id === user.id)}
 									onClick={() => {
-										axios
-											.delete(`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`, {
-												withCredentials: true,
-												headers: {
-													'API-KEY': 'ad0f84c1-3da2-4456-a57c-22a1731f6aba'
-												}
-											})
-											.then(response => {
-												if (response.data.resultCode == 0) {
-													props.unfollow(user.id)
-												}
-											})
+										props.unfollow(user.id)
 									}}
 								>
 									unfollow
 								</button>
 							) : (
 								<button
+									disabled={props.followingInProgress.some(id => id === user.id)}
 									onClick={() => {
-										axios
-											.post(
-												`https://social-network.samuraijs.com/api/1.0/follow/${user.id}`,
-												{},
-												{
-													withCredentials: true,
-													headers: {
-														'API-KEY': 'ad0f84c1-3da2-4456-a57c-22a1731f6aba'
-													}
-												}
-											)
-											.then(response => {
-												if (response.data.resultCode == 0) {
-													props.follow(user.id)
-												}
-											})
+										props.follow(user.id)
 									}}
 								>
 									follow
