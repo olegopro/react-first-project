@@ -1,5 +1,6 @@
 import Preloader from '../../common/Preloader/Preloader'
 import classes from './ProfileInfo.module.css'
+import ProfileStatus from './ProfileStatus'
 
 const ProfileInfo = props => {
 	if (!props.profile) {
@@ -8,12 +9,9 @@ const ProfileInfo = props => {
 
 	return (
 		<div>
-			<div>
-				<img src="https://placeimg.com/640/480/any" alt="main bg" />
-			</div>
 			<div className={classes.descriptionBlock}>
 				<img src={props.profile.photos.large} alt="" />
-				ava + desk
+				<ProfileStatus status={'Hellow my friends'} />
 			</div>
 		</div>
 	)
