@@ -1,7 +1,8 @@
-import classes from './Dialogs.module.css'
-import DialogItem from './DialogItem/DialogsItem'
-import Message from './Message/Message'
 import { Redirect } from 'react-router'
+import AddMessageForm from './AddMessageForm/AddMessageForm'
+import DialogItem from './DialogItem/DialogsItem'
+import classes from './Dialogs.module.css'
+import Message from './Message/Message'
 
 const Dialogs = props => {
 	let state = props.dialogsPage
@@ -16,13 +17,8 @@ const Dialogs = props => {
 
 	let newMessageBody = state.newMessageBody
 
-	let onSendMessageClick = () => {
-		props.sendMessage()
-	}
-
-	let onNewMessageChange = e => {
-		let body = e.target.value
-		props.updateNewMessageBody(body)
+	let addNewsMessage = values => {
+		props.sendMessage(values.newMessageBody)
 	}
 
 	if (!props.isAuth) return <Redirect to={'/login'} />
@@ -32,19 +28,8 @@ const Dialogs = props => {
 			<div className={classes.dialogsItems}>{dialogsElements}</div>
 			<div className={classes.messages}>
 				<div>{messagesElements}</div>
-				<div>
-					<div>
-						<textarea
-							placeholder="Enter your message"
-							value={newMessageBody}
-							onChange={onNewMessageChange}
-						></textarea>
-					</div>
-					<div>
-						<button onClick={onSendMessageClick}>Send</button>
-					</div>
-				</div>
 			</div>
+			<AddMessageForm onSubmit={addNewsMessage} />
 		</div>
 	)
 }
