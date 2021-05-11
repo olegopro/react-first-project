@@ -1,3 +1,4 @@
+import React from 'react'
 import { Redirect } from 'react-router'
 import AddMessageForm from './AddMessageForm/AddMessageForm'
 import DialogItem from './DialogItem/DialogsItem'
@@ -15,7 +16,7 @@ const Dialogs = props => {
 		return <Message message={message.message} id={message.id} key={message.id} />
 	})
 
-	let newMessageBody = state.newMessageBody
+	// let newMessageBody = state.newMessageBody
 
 	let addNewsMessage = values => {
 		props.sendMessage(values.newMessageBody)
