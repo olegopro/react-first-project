@@ -1,7 +1,7 @@
 {
 	"compilerOptions": {
 		"baseUrl": "./src",
-
+		"allowSyntheticDefaultImports": true,
 		"checkJs": true,
 		"jsx": "react"
 	}

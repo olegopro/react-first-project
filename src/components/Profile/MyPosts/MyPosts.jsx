@@ -30,7 +30,7 @@ let AddNewPostFormRedux = reduxForm({ form: 'ProfileAddNewPostForm' })(AddNewPos
 
 const MyPosts = props => {
 	let postsElements = props.posts.map(post => {
-		return <Post message={post.message} />
+		return <Post key={post.id} message={post.message} />
 	})
 
 	// let newPostElement = React.createRef()
